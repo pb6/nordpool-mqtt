@@ -15,10 +15,10 @@ config = configparser.ConfigParser()
 config.read_file(codecs.open(config_file, 'r', 'utf8'))
 
 dir_path = config.get('Nordpool', 'cache_dir')
-city = config.get('Nordpool', 'city')
 
 def save_price(date):
-	response = urlopen('https://www.nordpoolgroup.com/api/marketdata/page/23?currency=NOK&endDate={}'.format(date))
+
+	response = urlopen('https://www.nordpoolgroup.com/api/marketdata/page/53?currency=EUR&endDate={}'.format(date))
 	data = json.loads(response.read())
 
 	with open('{}/{}.json'.format(dir_path, date), 'w') as outfile:
